@@ -8,13 +8,12 @@ class Aplicacion:
         print("Bienvenido a la aplicación de gestión de estudiantes")
         salir = False
         while salir == False:
-
+            
             print("1. Agregar estudiante")
             print("2. Mostrar estudiantes")
             print("3. Editar estudiantes")
             print("4. Eliminar Estudiante")
             print("5. Salir")
-            
             opcion = input("Seleccione una opción: ")
             if opcion == "1":
                 self.agregar_estudiante()
