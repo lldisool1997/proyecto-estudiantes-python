@@ -1,5 +1,6 @@
 from app.modelos.estudiante import Estudiante
 
+
 class Aplicacion:
     def __init__(self):
         self.estudiantes = []
@@ -7,8 +8,8 @@ class Aplicacion:
     def mostrar_menu(self):
         print("Bienvenido a la aplicación de gestión de estudiantes")
         salir = False
+
         while salir == False:
-            
             print("1. Agregar estudiante")
             print("2. Mostrar estudiantes")
             print("3. Editar estudiantes")
@@ -28,7 +29,7 @@ class Aplicacion:
             else:
                 print("Opción inválida. Por favor, seleccione una opción válida.")
 
-    def existen_estudiantes(self): #len(self.estudiantes) = 2 > 0 -> True
+    def existen_estudiantes(self):  # len(self.estudiantes) = 2 > 0 -> True
         return len(self.estudiantes) > 0
 
     def agregar_estudiante(self):
@@ -39,7 +40,7 @@ class Aplicacion:
 
         estudiante = Estudiante(len(self.estudiantes) + 1, nombre_completo, dni, edad)
         self.estudiantes.append(estudiante)
-        
+
     def mostrar_estudiantes(self):
         if self.existen_estudiantes() == False:
             print("No hay estudiantes registrados.")
@@ -47,20 +48,18 @@ class Aplicacion:
             print("Lista de estudiantes:")
             for estudiante in self.estudiantes:
                 estudiante.mostrar_datos()
-    
+
     def editar_estudiante(self):
         if self.existen_estudiantes() == False:
             print("No hay estudiantes registrados.")
 
-        print("Ingrese el ID del estudiante que desea editar:")   
-        id_estudiante = input("ID: ") 
+        print("Ingrese el ID del estudiante que desea editar:")
+        id_estudiante = input("ID: ")
         for estudiante in self.estudiantes:
             estudiante.mostrar_datos()
             if int(estudiante.id) == int(id_estudiante):
                 print("Por favor ingrese los datos del estudiante")
                 nombre_completo = input("Nombre Completo: ")
                 dni = input("DNI: ")
-                edad = input("Edad: ")    
+                edad = input("Edad: ")
                 estudiante.editar_datos(nombre_completo, dni, edad)
-
-
